@@ -1,0 +1,10 @@
+<%= turbo_stream_from :rooms %>
+
+<%= turbo_frame_tag :rooms do %>
+  <%render @rooms%>
+<% end %>
+<% if user_signed_in? %>
+  <%= form_with model: @new_room do |f| %>
+      <%= f.submit "new room", class:'bg-red text-blue font-semibold hover:cursor-pointer py-2 px-4 border border-blue rounded'%>
+  <% end %>
+<% end %>
